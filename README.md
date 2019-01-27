@@ -8,7 +8,7 @@
 ```yaml
 dependencies:
   sparcr:
-    github: your-github-user/sparcr
+    github: astellon/sparcr
 ```
 2. Run `shards install`
 
@@ -26,7 +26,7 @@ TODO: Write development instructions here
 
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/sparcr/fork>)
+1. Fork it (<https://github.com/astellon/sparcr/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -34,4 +34,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [astellon](https://github.com/your-github-user) - creator and maintainer
+- [astellon](https://github.com/astellon) - creator and maintainer
