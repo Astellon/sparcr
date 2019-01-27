@@ -1,5 +1,7 @@
 # Sparcr
 
+[![Build Status](https://travis-ci.org/Astellon/sparcr.svg?branch=master)](https://travis-ci.org/Astellon/sparcr)
+
 **S**imple **PAR**ser combinator in **CR**ystal
 
 ## Installation
