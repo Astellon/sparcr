@@ -1,6 +1,6 @@
-# sparcr
+# Sparcr
 
-TODO: Write a description here
+**S**imple **PAR**ser combinator in **CR**ystal
 
 ## Installation
 
