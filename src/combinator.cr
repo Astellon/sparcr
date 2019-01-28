@@ -47,13 +47,13 @@ module Sparcr
             return Success(T).new(values.reduce { |x, y| callback.call(x, y) }, left)
           end
         end
-        
+
         values << result.value
         left = result.left
       end
     end
 
-    def reduce(&block : (T, T)->T)
+    def reduce(&block : (T, T) -> T)
       @reduce_block = block
       self # return self for chainning
     end
