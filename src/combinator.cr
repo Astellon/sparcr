@@ -36,7 +36,6 @@ module Sparcr
         result = @p.parse(left)
 
         if result.is_a?(Fail)
-          puts @reduce_block.nil?
 
           # for type interface skipping nil
           callback = @reduce_block
