@@ -11,7 +11,7 @@ module Sparcr
     end
   end
 
-  def self.many(p : Parser(T)) forall T
+  def self.many(p : Parser(T))
     return Many(T).new(p)
   end
 
