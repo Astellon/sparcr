@@ -1,9 +1,9 @@
-require "./sparcr"
+require "../src/sparcr"
 
 include Sparcr
 
 isdigit = Satisfy(Int32).new(->(x : Char) { !x.to_i?.nil? })
-integer = Many.new(isdigit)
+integer = Many.new(isdigit).reduce { |x, y| x * 10 + y }
 add_op  = Literal.new("+") | Literal.new("-")
 mul_op  = Literal.new("*") | Literal.new("/")
 
