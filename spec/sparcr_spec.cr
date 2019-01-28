@@ -18,10 +18,10 @@ describe Sparcr do
   end
 
   it "many" do
-    Sparcr.many(Literal.new("Crystal ")).parse("Crystal Crystal Crystal").value
+    Many.new(Literal.new("Crystal ")).parse("Crystal Crystal Crystal").value
   end
 
   it "parse integer" do
-    Sparcr.many(Satisfy(Int32).new(->(x : Char) { !x.to_i?.nil? })).parse("123").value.reduce { |x, y| x*10 + y }.should eq 123
+    Many.new(Satisfy(Int32).new(->(x : Char) { !x.to_i?.nil? })).parse("123").value.reduce { |x, y| x*10 + y }.should eq 123
   end
 end
