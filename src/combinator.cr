@@ -25,7 +25,7 @@ module Sparcr
     end
   end
 
-  class Many(T) < Parser(Array(T) | T)
+  class Many(T) < Parser(Array(T))
     def initialize(@p : Parser(T))
     end
 
@@ -34,27 +34,26 @@ module Sparcr
       left = input
       while true
         result = @p.parse(left)
-
-        if result.is_a?(Fail)
-
-          # for type interface skipping nil
-          callback = @reduce_block
-          if callback.nil?
-            return Success(Array(T)).new(values, left)
-          else
-            # should reconstruct block
-            return Success(T).new(values.reduce { |x, y| callback.call(x, y) }, left)
-          end
-        end
-
+        return Success(Array(T)).new(values, left) if result.is_a?(Fail)
         values << result.value
         left = result.left
       end
     end
 
     def reduce(&block : (T, T) -> T)
+      return Reduce(T).new(self) { |x, y| block.call(x, y) }
+    end
+  end
+
+  class Reduce(T) < Parser(T)
+    def initialize(@p : Many(T), &block : (T, T) -> T)
       @reduce_block = block
-      self # return self for chainning
+    end
+
+    def parse(input : String)
+      result = @p.parse(input)
+      value = result.value.reduce { |x, y| @reduce_block.call(x, y) }
+      return Success(T).new(value, result.left)
     end
   end
 end
